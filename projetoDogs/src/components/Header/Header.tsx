@@ -1,12 +1,13 @@
 import { Link } from "react-router-dom";
+import { NavHeader } from "./style";
 
 const Header = () => {
   return (
     <div>
-      <nav>
+      <NavHeader>
         <Link to='/'>Home</Link>
         <Link to='/login'>Entrar/Login</Link>
-      </nav>
+      </NavHeader>
     </div>
   );
 };
