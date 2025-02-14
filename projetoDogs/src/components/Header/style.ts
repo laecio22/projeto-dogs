@@ -12,19 +12,15 @@ export const ContainerHeader = styled.header`
 export const NavHeader = styled.nav`
   display: flex;
   justify-content: space-between;
-  height: 50px;
+  height: 5rem;
   align-items: center;
+
+  div {
+    display: flex;
+    gap: 1rem;
+  }
 
   .login {
     color: #333;
-  }
-
-  .login::before {
-    content: "";
-    display: inline-block;
-    width: 30px;
-    height: 40px;
-    background: url("../../assets/usuario.svg") no-repeat center center;
-    background-color: #843;
   }
 `;
