@@ -1,14 +1,21 @@
 import { Link } from "react-router-dom";
-import { NavHeader } from "./style";
+import { NavHeader, ContainerHeader } from "./style";
+import LogoDog from "../../assets/dogs.svg?react";
+import img from "../../assets/usuario.svg";
 
 const Header = () => {
   return (
-    <div>
+    <ContainerHeader>
       <NavHeader>
-        <Link to='/'>Home</Link>
-        <Link to='/login'>Entrar/Login</Link>
+        <Link to="/" className="logo" aria-label="logo-dog">
+          <LogoDog />
+        </Link>
+        <img src={img} />
+        <Link to="/login" className="login">
+          Entrar/Login
+        </Link>
       </NavHeader>
-    </div>
+    </ContainerHeader>
   );
 };
 

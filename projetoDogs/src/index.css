@@ -11,6 +11,8 @@ html {
 body {
   font-family: "Roboto", sans-serif;
   font-size: 1.6rem;
+  padding-top: 6rem;
+  color: #333;
 }
 
 img {
