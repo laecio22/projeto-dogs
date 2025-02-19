@@ -2,6 +2,8 @@ import { Link } from "react-router-dom";
 import { ChangeEvent, useState } from "react";
 import api from "axios";
 import BASE_URL from "../../../api/URL";
+import Button from "../../Forms/Button/Button";
+import Input from "../../Forms/Input/Input";
 
 const LoginForm = () => {
   const [name, setName] = useState("");
@@ -41,16 +43,22 @@ const LoginForm = () => {
   return (
     <section>
       <form onSubmit={submitUser}>
-        <label>Nome</label>
-        <input type="text" value={name} name="name" onChange={handleName} />
-        <label>Senha</label>
-        <input
+        <h2>Login</h2>
+        <Input
+          type="text"
+          name="username"
+          onChange={handleName}
+          value={name}
+          label="Usuário"
+        />
+        <Input
           type="password"
-          value={password}
           name="password"
           onChange={handlePassword}
-        />
-        <button>Entrar</button>
+          value={password}
+          label="Senha"
+        />      
+        <Button>Entrar</Button>
       </form>
       <Link to={"/login/criar"}>Cadastro</Link>
     </section>
