@@ -1,53 +1,21 @@
 import { Link } from "react-router-dom";
-import api from "axios";
 import Button from "../../Forms/Button/Button";
 import Input from "../../Forms/Input/Input";
 import useForm from "../../../hooks/useForm";
-import { TOKEN_CREATE, GET_USER } from "../../../api/URL.js";
-import { useEffect } from "react";
+import { useContext } from "react";
+import { UserContext } from "../../../contexts/UserContext";
 
 const LoginForm = () => {
   const username = useForm();
   const password = useForm();
 
-  useEffect(()=>{
-    const tokenUser = window.localStorage.getItem('token');
-    if (tokenUser) {
-      getUser(tokenUser)
-    }
-  }, [])
-
-  const  getUser = async(token:string) => {
-    try {
-     const{url, headers } = GET_USER(token)
-       const response =  await api.get(url, {
-        headers
-       })
-      console.log(response, 'outra')
-    } catch (error) {
-      console.log(error, 'erro')
-    }
-  }
+  const { userLogin } = useContext(UserContext);  
 
   const submitUser = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    const { url, headers, body } = TOKEN_CREATE({
-      username: username.value,
-      password: password.value,
-    });
 
     if (username.validate() && password.validate()) {
-      try {
-        const response = await api.post(`${url}`, body, {
-          headers,
-        });
-        
-        window.localStorage.setItem('token', response.data.token)
-        getUser(response.data.token)
-       
-      } catch (error) {
-        console.log(error, 'erro')
-      }
+      userLogin(username.value, password.value);
     }
   };
 
