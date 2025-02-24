@@ -1,6 +1,6 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import api from "axios";
-import { TOKEN_CREATE, GET_USER } from "../api/URL";
+import { TOKEN_CREATE, GET_USER, TOKEN_VALIDATE } from "../api/URL";
 export const UserContext = createContext();
 
 export const UserStorage = ({ children }) => {
@@ -8,6 +8,29 @@ export const UserStorage = ({ children }) => {
   const [loading, setLoading] = useState(false);
   const [login, setLogin] = useState(null);
   const [error, setError] = useState(null);
+
+  useEffect(()=>{
+   const autoLogin = async() => {
+    const token = window.localStorage.getItem('token')
+    if (token) {
+      try {
+        const {url, headers} = TOKEN_VALIDATE(token)
+       const response =  await  api.post(url, {
+         headers
+        })
+       console.log(response, 'ttttt')
+        
+      } catch (error) {
+        console.log(error, 'erro')
+      } finally {
+        
+      }
+    
+    }
+   }
+
+   autoLogin()
+  },[])
 
   const userLogin = async (username, password) => {
     const {url, headers, body} = TOKEN_CREATE({

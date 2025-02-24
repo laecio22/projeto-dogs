@@ -11,6 +11,15 @@
     } 
   }
 
+  export const TOKEN_VALIDATE = (token) =>{
+    return {
+      url: BASE_URL + '/jwt-auth/v1/token/validate',
+      headers:{
+        'Authorization': 'Bearer ' + token
+      },     
+    } 
+  }
+
   export const GET_USER = (token) =>{
     return {
       url: BASE_URL + '/api/user',
