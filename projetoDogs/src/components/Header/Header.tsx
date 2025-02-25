@@ -6,7 +6,7 @@ import { UserContext } from "../../contexts/UserContext";
 import { useContext } from "react";
 
 const Header = () => {
-  const { dataUser } = useContext(UserContext);
+  const { dataUser, userLogout } = useContext(UserContext);
 
   return (
     <ContainerHeader>
@@ -19,6 +19,7 @@ const Header = () => {
             <Link to="/conta" className="login">
               {dataUser.nome}
             </Link>
+            <button onClick={userLogout}>Sair</button>
             <img src={imgUser} alt="logo-usuário" />
           </div>
         ) : (
