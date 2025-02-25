@@ -9,41 +9,37 @@ export const UserStorage = ({ children }) => {
   const [login, setLogin] = useState(null);
   const [error, setError] = useState(null);
 
-  useEffect(()=>{
-   const autoLogin = async() => {
-    const token = window.localStorage.getItem('token')
-    if (token) {
-      try {
-        const {url, headers} = TOKEN_VALIDATE(token)
-       const response =  await  api.post(url, {
-         headers
-        })
-       console.log(response, 'ttttt')
-        
-      } catch (error) {
-        console.log(error, 'erro')
-      } finally {
-        
+  useEffect(() => {
+    const autoLogin = async () => {
+      const token = window.localStorage.getItem("token");
+      if (token) {
+        try {
+          const { url, options } = TOKEN_VALIDATE(token);
+          const response = await fetch(url, options);
+          if (!response.ok) throw new Error("Token inválido");
+          const json = await response.json();
+        } catch (error) {
+          console.log(error, "erro");
+        } finally {
+        }
       }
-    
-    }
-   }
+    };
 
-   autoLogin()
-  },[])
+    autoLogin();
+  }, []);
 
   const userLogin = async (username, password) => {
-    const {url, headers, body} = TOKEN_CREATE({
-      username,
-      password,
-    });
-
-    try {   
-      const response = await api.post(url, body, {
-        headers,
+    
+    try {
+      const { url, options } = TOKEN_CREATE({
+        username,
+        password,
       });
-      window.localStorage.setItem("token", response.data.token);
-      getUser(response.data.token);
+      const tokenRes = await fetch(url, options);
+      console.log(response, "criar");
+      const { token } = await tokenRes.json();
+      window.localStorage.setItem("token", token);
+      getUser(token);
     } catch (error) {
       console.log(error, "eerro ");
     }
@@ -51,12 +47,10 @@ export const UserStorage = ({ children }) => {
 
   const getUser = async (token) => {
     try {
-      const { url, headers } = GET_USER(token);
-      const response = await api.get(url, {
-        headers,
-      });
-      console.log(response);
-      setDataUser(response.data);
+      const { url, options } = GET_USER(token);
+      const response = await fetch(url, options);
+      const json = await response.json()      
+      setDataUser(json);
       setLogin(true);
     } catch (error) {
       console.log(error);
