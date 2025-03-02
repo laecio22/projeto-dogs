@@ -5,21 +5,24 @@ import LoginForgetPassword from "./LoginForgetPassword/LoginForgetPassword"
 import LoginResetPassword from "./LoginResetPassword/LoginResetPassword"
 import { useContext } from "react"
 import {UserContext} from '../../contexts/UserContext'
-
+import { SectionRoutesForm, ContainerRoutesLogin } from "./style"
 
 const Login = () => {
   const {login} = useContext(UserContext)
   if (login === true) return <Navigate to="/conta"/>
   return (
-    <div>
+    <SectionRoutesForm>     
+      <ContainerRoutesLogin>
       <Routes>
          <Route path="/" element={<LoginForm/>} />
          <Route path="criar" element={<LoginCreate/>}/>
          <Route path="resetar-senha" element={<LoginResetPassword/>}/>
          <Route path="esqueceu-senha" element={<LoginForgetPassword/>}/>
       </Routes>
+
+      </ContainerRoutesLogin>
       
-      </div>
+      </SectionRoutesForm>
   )
 }
 
