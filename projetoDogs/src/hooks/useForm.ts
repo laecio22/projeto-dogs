@@ -6,6 +6,11 @@ const types = {
       /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
     message: "Email inválido, preencha um email válido",
   },
+
+  password: {
+    regex: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@.#$!%*?&])[A-Za-z\d@.#$!%*?&]{8,15}$/,
+    message: 'Senha inválida, deve conter 1 letra maiúscula, 1 minúscula, 1 dígito,  1 caracter especial e ter no  minimo  tamanho 8'
+  }
 };
 
 const useForm = (type?: string | boolean) => {
