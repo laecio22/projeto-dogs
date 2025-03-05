@@ -11,6 +11,15 @@ export const UserStorage = ({ children }) => {
   const [error, setError] = useState(null);
   const navigate = useNavigate();
 
+  const userLogout = async () => {
+    setDataUser(null);
+    setError(null);
+    setLoading(false);
+    setLogin(false);
+    window.localStorage.removeItem("token");
+    navigate("/login");
+  };
+
   useEffect(() => {
     const autoLogin = async () => {
       const token = window.localStorage.getItem("token");
@@ -28,11 +37,13 @@ export const UserStorage = ({ children }) => {
         } finally {
           setLoading(false);
         }
+      } else {
+        setLogin(false)
       }
     };
 
     autoLogin();
-  }, []);
+  }, [userLogout]);
 
   const userLogin = async (username, password) => {
     try {
@@ -56,14 +67,7 @@ export const UserStorage = ({ children }) => {
     }
   };
 
-  const userLogout = async () => {
-    setDataUser(null);
-    setError(null);
-    setLoading(false);
-    setLogin(false);
-    window.localStorage.removeItem("token");
-    navigate("/login");
-  };
+ 
 
   const getUser = async (token) => {
     try {
