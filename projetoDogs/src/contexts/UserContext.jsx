@@ -1,4 +1,4 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useCallback, useEffect, useState } from "react";
 import { TOKEN_CREATE, GET_USER, TOKEN_VALIDATE } from "../api/URL";
 import { useNavigate } from "react-router-dom";
 
@@ -11,14 +11,16 @@ export const UserStorage = ({ children }) => {
   const [error, setError] = useState(null);
   const navigate = useNavigate();
 
-  const userLogout = async () => {
+  const userLogout = useCallback(async()=>{
     setDataUser(null);
     setError(null);
     setLoading(false);
     setLogin(false);
     window.localStorage.removeItem("token");
     navigate("/login");
-  };
+  }, [])
+  
+  
 
   useEffect(() => {
     const autoLogin = async () => {
