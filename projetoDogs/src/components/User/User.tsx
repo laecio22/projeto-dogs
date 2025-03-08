@@ -7,7 +7,7 @@ import Feed from "../Feed/Feed"
 
 const User = () => {
   return (
-    <SectionContainerUser>
+    <SectionContainerUser >
       <UserHeader/>
       <Routes>
         <Route path="/"  element={<Feed/>}/>

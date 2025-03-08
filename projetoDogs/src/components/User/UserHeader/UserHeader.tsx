@@ -1,12 +1,32 @@
-import { TitleForm as Title} from "../../Login/LoginForm/style"
-import UserHeaderNav from "../UserHeaderNav/UserHeaderNav"
+import { useEffect, useState } from "react";
+import { TitleForm as Title } from "../../Login/LoginForm/style";
+import UserHeaderNav from "../UserHeaderNav/UserHeaderNav";
+import { Header } from "./style";
+import { useLocation } from "react-router-dom";
 const UserHeader = () => {
-  return (
-    <header>
-        <Title>Título</Title>   
-        <UserHeaderNav/>    
-    </header>
-  )
-}
+  const [title, setTitle] = useState("");
+  const location = useLocation();
+  useEffect(() => {
+    const { pathname } = location;
+    switch (pathname) {
+      case "/conta/postar":
+        setTitle("Poste sua Foto");
+        break;
+      case "/conta/estatisticas":
+        setTitle("Estatísticas");
+        break;
 
-export default UserHeader
+      default:
+        setTitle("Minha Conta");
+        break;
+    }
+  }, [location]);
+  return (
+    <Header>
+      <Title>{title}</Title>
+      <UserHeaderNav />
+    </Header>
+  );
+};
+
+export default UserHeader;

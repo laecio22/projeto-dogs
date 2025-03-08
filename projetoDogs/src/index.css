@@ -49,7 +49,7 @@ input {
 }
 
 .container {
-  max-width: 120rem;
+  max-width: 120rem;    
   display: flex;
   flex-direction: column;
   padding: 0 1rem;

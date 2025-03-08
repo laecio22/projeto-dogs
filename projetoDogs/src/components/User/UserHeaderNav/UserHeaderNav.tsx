@@ -1,33 +1,41 @@
-import { useContext } from "react"
-import { NavLink } from "react-router-dom"
+import { useContext, useState } from "react"
+import { NavLink, useNavigate } from "react-router-dom"
 import  {UserContext} from '../../../contexts/UserContext';
 import ImgMinhasFotos from '../../../assets/feed.svg?react';
 import ImgEstatisticas from '../../../assets/estatisticas.svg?react';
 import ImgAdicionar from '../../../assets/adicionar.svg?react';
 import ImgSair  from  '../../../assets/sair.svg?react';
+import { Nav } from "./style";
 
 const UserHeaderNav = () => {
  const {userLogout} = useContext(UserContext)
+ const [mobile, setMobile] = useState(null);
+ const navigate = useNavigate()
+
+ const handleLogout = () => {
+   userLogout()
+   navigate('/login')
+ }
+
   return (
-    <nav>
-      <NavLink to='/conta'>
+    <Nav>
+      <NavLink to='/conta' end>
          <ImgMinhasFotos/>
-         Minhas  Fotos
+         {mobile && 'Minhas  Fotos'}
       </NavLink>
       <NavLink to='/conta/estatisticas'>
         <ImgEstatisticas/>
-         Estatísticas
+        {mobile && 'Estatísticas'}       
       </NavLink>
       <NavLink to='/conta/postar'>
         <ImgAdicionar/>
-         Adicionar Foto
+         {mobile && 'Adicionar Foto'}
       </NavLink>
-      <button onClick={userLogout}>
-        <ImgSair/>
-        Sair
-        {''}
+      <button onClick={handleLogout}>
+        <ImgSair/>       
+        {mobile && 'Sair'}
         </button>
-    </nav>
+    </Nav>
   )
 }
 

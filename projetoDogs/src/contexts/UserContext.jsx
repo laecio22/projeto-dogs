@@ -8,8 +8,9 @@ export const UserStorage = ({ children }) => {
   const [dataUser, setDataUser] = useState(null);
   const [loading, setLoading] = useState(false);
   const [login, setLogin] = useState(null);
-  const [error, setError] = useState(null);
-  const navigate = useNavigate();
+  const [error, setError] = useState(null); 
+
+  const navigate = useNavigate()
 
   const userLogout = useCallback(async()=>{
     setDataUser(null);
@@ -17,7 +18,7 @@ export const UserStorage = ({ children }) => {
     setLoading(false);
     setLogin(false);
     window.localStorage.removeItem("token");
-    navigate("/login");
+    
   }, [])
   
   
