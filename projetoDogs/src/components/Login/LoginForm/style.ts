@@ -1,19 +1,8 @@
-import { keyframes, styled } from "styled-components";
-
-const animationLeft = keyframes`
-   from {
-       opacity: 0;
-       transform: translateX(-20px);
-   }
-
-   to {
-    opacity: 1;
-    transform: initial;
-   }
-`;
+import { styled } from "styled-components";
+import { animation } from "../../../helper/animationForm";
 
 export const SectionLoginForm = styled.section`
-  animation: ${animationLeft} 0.3s forwards;
+  animation: ${animation} 0.3s forwards;
   .perdeu {
     color: #778888;
     padding: 1rem 0;

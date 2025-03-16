@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-const useMedia = (media) => {
+const useMedia = (media:string) => {
   const [match, setMatch] = useState<null | boolean>(null);
 
   useEffect(() => {

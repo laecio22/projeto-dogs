@@ -1,16 +1,7 @@
-import styled, {keyframes} from "styled-components";
+import styled from "styled-components";
+import { animation } from "../../../helper/animationForm";
 
-const animation = keyframes`
- from {
-       opacity: 0;
-       transform: translateX(-20px);
-   }
 
-   to {
-    opacity: 1;
-    transform: initial;
-   }
-`
 
 export const SectionFormCreate = styled.section`
    animation: ${animation} 0.3s forwards;
