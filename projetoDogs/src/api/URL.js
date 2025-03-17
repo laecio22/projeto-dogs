@@ -51,8 +51,7 @@ export const USER_POST = (body) => {
   };
 };
 
-export const PHOTO_POST = (formData, token) => {
-  console.log(formData, "form");
+export const PHOTO_POST = (formData, token) => {  
   return {
     url: BASE_URL + "/api/photo",
     options: {

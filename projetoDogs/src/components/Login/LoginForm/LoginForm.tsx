@@ -28,7 +28,7 @@ const LoginForm = () => {
         <Input type="text" name="username" label="Usuário" {...username} />
         <Input type="password" name="password" label="Senha" {...password} />
         {loading ? (
-          <Button disabled>Carregando</Button>
+          <Button disabled>Carregando...</Button>
         ) : (
           <Button>Entrar</Button>
         )}
