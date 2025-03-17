@@ -1,7 +1,12 @@
+import FeedModal from "./FeedModal/FeedModal"
+import FeedPhotos from "./FeedPhotos/FeedPhotos"
 
 const Feed = () => {
   return (
-    <div>Feed</div>
+    <section className="container">
+      <FeedModal/>
+      <FeedPhotos/>
+    </section>
   )
 }
 

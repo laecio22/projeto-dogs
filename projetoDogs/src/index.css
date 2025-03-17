@@ -50,9 +50,11 @@ input {
 }
 
 .container {
-  max-width: 120rem;    
-  display: flex;
-  flex-direction: column;
+  max-width: 80rem;
   padding: 0 1rem;
-  margin: 0 auto;
+  margin: 0 auto; 
+}
+
+.mainContainer {
+  margin-top: 2rem;
 }

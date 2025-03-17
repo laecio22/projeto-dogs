@@ -7,6 +7,7 @@ export const ContainerHeader = styled.header`
   position: fixed;
   z-index: 100;
   top: 0;
+  background:white;
 `;
 
 export const NavHeader = styled.nav`

@@ -10,7 +10,7 @@ const Header = () => {
 
   return (
     <ContainerHeader>
-      <NavHeader>
+      <NavHeader className="container">
         <Link to="/" className="logo" aria-label="logo-dog">
           <LogoDog />
         </Link>
