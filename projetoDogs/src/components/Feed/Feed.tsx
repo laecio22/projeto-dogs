@@ -1,13 +1,16 @@
-import FeedModal from "./FeedModal/FeedModal"
-import FeedPhotos from "./FeedPhotos/FeedPhotos"
+import { useState } from "react";
+import FeedModal from "./FeedModal/FeedModal";
+import FeedPhotos from "./FeedPhotos/FeedPhotos";
 
 const Feed = () => {
+  const [modalPhoto, setModalPhoto] = useState(null);
   return (
     <section className="container">
-      <FeedModal/>
-      <FeedPhotos/>
-    </section>
-  )
-}
+      {modalPhoto && <FeedModal photo={modalPhoto} />}
 
-export default Feed
+      <FeedPhotos setModalPhoto={setModalPhoto} />
+    </section>
+  );
+};
+
+export default Feed;

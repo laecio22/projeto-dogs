@@ -6,7 +6,7 @@ import Error from "../../../helper/Error.js"
 import Loading from "../../../helper/Loading.js"
 import { ContainerListPhotos } from "./style.js"
 
-const FeedPhotos = () => {
+const FeedPhotos = ({setModalPhoto}) => {
    const {data, loading, error, request} = useRequest()
 
    useEffect(()=>{
@@ -25,7 +25,7 @@ const FeedPhotos = () => {
     <ContainerListPhotos>
         {data.map((photo)=> {
 
-         return <FeedPhotosItem photo={photo} key={photo.id}/>
+         return <FeedPhotosItem photo={photo} key={photo.id} setModalPhoto={setModalPhoto}/>
         })}
     </ContainerListPhotos>
   )

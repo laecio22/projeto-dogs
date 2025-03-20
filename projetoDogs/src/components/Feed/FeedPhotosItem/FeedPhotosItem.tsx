@@ -1,8 +1,12 @@
 import { ItemPhoto } from "./style"
 
-const FeedPhotosItem = ({photo}) => {
+const FeedPhotosItem = ({photo, setModalPhoto}) => {
+
+  const handleClickPhoto = () => {   
+    setModalPhoto(photo)
+  }
   return (
-    <ItemPhoto>
+    <ItemPhoto  onClick={handleClickPhoto}>
       <img src={photo.src} alt={photo.title}/>
       <span>{photo.acessos}</span>   
     </ItemPhoto>
