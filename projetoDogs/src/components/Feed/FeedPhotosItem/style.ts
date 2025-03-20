@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import img from '../../../assets/visualizacao.svg'
+import img from '../../../assets/visualizacao.svg?url';
 
 export const ItemPhoto =  styled.li`
 &:nth-child(2){
@@ -39,7 +39,10 @@ span::before {
     width:16px;
     height: 16px;
     margin-right:0.25rem;    
-    background:url(${img}) no-repeat;
+     background-image: url('/visualizacao.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
    
 }
 
