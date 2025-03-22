@@ -5,7 +5,7 @@ export const ContainerHeader = styled.header`
   width: 100%;
   padding: 0 2rem;
   position: fixed;
-  z-index: 100;
+  z-index: 2000;
   top: 0;
   background:white;
 `;

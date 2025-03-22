@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import img from '../../../assets/visualizacao.svg?url';
 
 export const ItemPhoto =  styled.li`
 &:nth-child(2){

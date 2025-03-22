@@ -10,3 +10,10 @@ export const animation = keyframes`
     transform: initial;
    }
 `
+
+export const scaleUp =  keyframes`
+ to {
+    transform: initial;
+    opacity:  initial;
+ }
+`
