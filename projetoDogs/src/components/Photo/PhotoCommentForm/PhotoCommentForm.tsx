@@ -2,6 +2,8 @@ import { useState } from "react";
 import ImgEnviar from "../../../assets/enviar.svg?react";
 import useRequest from "../../../hooks/useRequest";
 import { COMMENT_POST } from "../../../api/URL.js";
+import { FormCommentPhoto } from "./style.js";
+import Error from "../../../helper/Error.js";
 
 const PhotoCommentForm = ({ id, setComments }) => {
   const [comment, setComment] = useState("");
@@ -18,7 +20,7 @@ const PhotoCommentForm = ({ id, setComments }) => {
     }
   };
   return (
-    <form onSubmit={handleSubmit}>
+    <FormCommentPhoto onSubmit={handleSubmit}>
       <textarea
         value={comment}
         onChange={({ target }) => setComment(target.value)}
@@ -29,7 +31,8 @@ const PhotoCommentForm = ({ id, setComments }) => {
       <button>
         <ImgEnviar />
       </button>
-    </form>
+      <Error error={error}/>
+    </FormCommentPhoto>
   );
 };
 

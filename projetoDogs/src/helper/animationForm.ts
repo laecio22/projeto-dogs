@@ -17,3 +17,13 @@ export const scaleUp =  keyframes`
     opacity:  initial;
  }
 `
+
+export const latir =  keyframes`
+from {
+   opacity: 0;
+}
+
+to {
+   opacity: 1;
+}
+`

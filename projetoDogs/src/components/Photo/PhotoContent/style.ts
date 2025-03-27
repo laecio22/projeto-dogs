@@ -3,12 +3,12 @@ import { scaleUp } from "../../../helper/animationForm";
 
 export const ContainerPhoto = styled.div`
   margin: auto;
-  height: 36rem;
+  height: 55rem;
   background: white;
   border-radius: 0.6rem;
   overflow: hidden;
   display: grid;
-  grid-template-columns: 36rem 20rem;
+  grid-template-columns: 55rem 30rem;
   grid-template-rows: auto 1fr auto;
   opacity: 0;
   transform: scale(0.8);
