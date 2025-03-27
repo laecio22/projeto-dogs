@@ -101,3 +101,15 @@ export const COMMENT_POST = (id, token, comment) => {
     },
   };
 };
+
+export const PHOTO_DELETE = (id, token) => {  
+  return {
+    url: `${BASE_URL}/api/photo/${id}` ,
+    options: {
+      method: "DELETE",
+      headers: {
+        Authorization: "Bearer " + token,      
+      },     
+    },
+  };
+};

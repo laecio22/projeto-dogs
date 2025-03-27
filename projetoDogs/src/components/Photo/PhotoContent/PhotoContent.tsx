@@ -2,10 +2,14 @@ import { Link } from "react-router-dom";
 import PhotoComments from "../PhotoComments/PhotoComments";
 import { TitleForm } from "../../Login/LoginForm/style";
 import { ContainerPhoto, ContainerDetails, ContainerImg } from "./style";
+import { useContext } from "react";
+import  {UserContext}  from '../../../contexts/UserContext';
+import PhotoDelete from "../PhotoDelete/PhotoDelete";
 
 const PhotoContent = ({ data }) => {
   const { comments, photo } = data;
-  
+  const user = useContext(UserContext)
+    
   return (
     <ContainerPhoto>
       <ContainerImg>
@@ -13,8 +17,8 @@ const PhotoContent = ({ data }) => {
       </ContainerImg>
       <ContainerDetails>
         <div>
-          <p className="author">
-            <Link to={`/perfil/${photo.author}`}>@{photo.author}</Link>
+          <p className="author">          
+            {user.dataUser &&  user.dataUser.username === photo.author ? (<PhotoDelete id={photo.id}/>):  (<Link to={`/perfil/${photo.author}`}>@{photo.author}</Link>)}           
             <span className="visualizacoes">{photo.acessos}</span>
           </p>
           <TitleForm>
