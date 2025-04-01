@@ -1,10 +1,10 @@
-import Feed from "../Feed/Feed"
+import Feed from "../Feed/Feed";
 const Home = () => {
   return (
     <section className="mainContainer">
-      <Feed/>
+      <Feed />
     </section>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;
