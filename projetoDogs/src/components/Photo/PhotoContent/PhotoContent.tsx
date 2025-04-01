@@ -5,6 +5,7 @@ import { ContainerPhoto, ContainerDetails, ContainerImg } from "./style";
 import { useContext } from "react";
 import  {UserContext}  from '../../../contexts/UserContext';
 import PhotoDelete from "../PhotoDelete/PhotoDelete";
+import Image from "../../../helper/Image";
 
 const PhotoContent = ({ data }) => {
   const { comments, photo } = data;
@@ -13,7 +14,7 @@ const PhotoContent = ({ data }) => {
   return (
     <ContainerPhoto>
       <ContainerImg>
-        <img src={photo.src} alt={photo.title} />
+        <Image src={photo.src} alt={photo.title}/>     
       </ContainerImg>
       <ContainerDetails>
         <div>

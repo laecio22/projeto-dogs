@@ -27,3 +27,13 @@ to {
    opacity: 1;
 }
 `
+
+export  const  skeleton = keyframes`
+   from {
+      background-position: 0px
+   }
+
+   to {
+      background-position: -200%;
+   }
+`

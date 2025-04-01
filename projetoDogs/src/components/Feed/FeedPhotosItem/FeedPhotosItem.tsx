@@ -1,4 +1,5 @@
 import { ItemPhoto } from "./style"
+import Image from "../../../helper/Image"
 
 const FeedPhotosItem = ({photo, setModalPhoto}) => {
 
@@ -7,7 +8,7 @@ const FeedPhotosItem = ({photo, setModalPhoto}) => {
   }
   return (
     <ItemPhoto  onClick={handleClickPhoto}>
-      <img src={photo.src} alt={photo.title}/>
+      <Image src={photo.src} alt={photo.title}/>     
       <span>{photo.acessos}</span>   
     </ItemPhoto>
   )

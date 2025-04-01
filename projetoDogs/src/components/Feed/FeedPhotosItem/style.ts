@@ -18,8 +18,8 @@ cursor: pointer;
 overflow:hidden;
 border-radius:0.6rem;
 
-img, span {
-    grid-area:1/1;
+& > div {
+   grid-area:1/1;
 }
 
 span {
@@ -30,6 +30,7 @@ span {
     justify-content:center;
     align-items:center;
     display:none;
+    grid-area:1/1;
 }
 
 span::before {
