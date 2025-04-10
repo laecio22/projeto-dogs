@@ -1,8 +1,13 @@
 import { useEffect, useState } from "react";
 import FeedModal from "./FeedModal/FeedModal";
 import FeedPhotos from "./FeedPhotos/FeedPhotos";
+type User = string | number;
 
-const Feed = ({ user }) => {
+interface IUser {
+    user:User;
+}
+
+const Feed = ({ user }:IUser )=> {
   const [modalPhoto, setModalPhoto] = useState(null);
   const [pages, setPages] = useState([1, 2]);
   const [infinite, setInfinite] = useState(true);
