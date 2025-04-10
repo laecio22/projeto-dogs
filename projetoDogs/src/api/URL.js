@@ -51,7 +51,7 @@ export const USER_POST = (body) => {
   };
 };
 
-export const PHOTO_POST = (formData, token) => {  
+export const PHOTO_POST = (formData, token) => {
   return {
     url: BASE_URL + "/api/photo",
     options: {
@@ -65,31 +65,29 @@ export const PHOTO_POST = (formData, token) => {
   };
 };
 
-export const GET_PHOTOS = ({page, total, user}) => {  
+export const GET_PHOTOS = ({ page, total, user }) => {
   return {
-    url: `${BASE_URL}/api/photo?_page=${page}&_total=${total}&_user=${user}` ,
+    url: `${BASE_URL}/api/photo?_page=${page}&_total=${total}&_user=${user}`,
     options: {
       method: "GET",
-      cache:'no-store'
-    
+      cache: "no-store",
     },
   };
 };
 
-export const PHOTO_GET = (id) => {  
+export const PHOTO_GET = (id) => {
   return {
-    url: `${BASE_URL}/api/photo/${id}` ,
+    url: `${BASE_URL}/api/photo/${id}`,
     options: {
       method: "GET",
-      cache:'no-store'
-    
+      cache: "no-store",
     },
   };
 };
 
-export const COMMENT_POST = (id, token, comment) => {  
+export const COMMENT_POST = (id, token, comment) => {
   return {
-    url: `${BASE_URL}/api/comment/${id}` ,
+    url: `${BASE_URL}/api/comment/${id}`,
     options: {
       method: "POST",
       headers: {
@@ -97,19 +95,25 @@ export const COMMENT_POST = (id, token, comment) => {
         "Content-Type": "application/json",
       },
 
-      body: JSON.stringify(comment)
+      body: JSON.stringify(comment),
     },
   };
 };
 
-export const PHOTO_DELETE = (id, token) => {  
+export const PHOTO_DELETE = (id, token) => {
   return {
-    url: `${BASE_URL}/api/photo/${id}` ,
+    url: `${BASE_URL}/api/photo/${id}`,
     options: {
       method: "DELETE",
       headers: {
-        Authorization: "Bearer " + token,      
-      },     
+        Authorization: "Bearer " + token,
+      },
     },
+  };
+};
+
+export const GET_PHOTO = (id) => {
+  return {
+    url: `${BASE_URL}/api/photo/${id}`,
   };
 };

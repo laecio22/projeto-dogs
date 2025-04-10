@@ -6,6 +6,10 @@ export  const FormCommentPhoto =  styled.form`
    grid-template-columns: 1fr  auto;
    margin: 1.5rem;
 
+   &.single {
+    margin: 1.5rem 0;
+   }
+
    textarea {
     display:block;
     width: 100%;

@@ -5,7 +5,7 @@ import { COMMENT_POST } from "../../../api/URL.js";
 import { FormCommentPhoto } from "./style.js";
 import Error from "../../../helper/Error.js";
 
-const PhotoCommentForm = ({ id, setComments }) => {
+const PhotoCommentForm = ({ id, setComments, single }) => {
   const [comment, setComment] = useState("");
 
   const { request, error } = useRequest();
@@ -20,7 +20,7 @@ const PhotoCommentForm = ({ id, setComments }) => {
     }
   };
   return (
-    <FormCommentPhoto onSubmit={handleSubmit}>
+    <FormCommentPhoto onSubmit={handleSubmit} className={`${single ? 'single': ''}`}>
       <textarea
         value={comment}
         onChange={({ target }) => setComment(target.value)}

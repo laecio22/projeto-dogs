@@ -14,10 +14,12 @@ export const ContainerPhoto = styled.div`
   transform: scale(0.8);
   animation: ${scaleUp} 0.3s forwards;
 
-  .comments {
-    padding: 0 2rem;
+  &.single {
+    grid-template-columns: 1fr;
+    height: auto;
   }
 
+ 
   @media screen and (max-width: 64rem) {
     height: auto;
     max-height: calc(100vh -4rem);
@@ -27,6 +29,13 @@ export const ContainerPhoto = styled.div`
 `;
 export const ContainerImg = styled.div`
   grid-row: 1/4;
+
+  img {
+     grid-row: 1;
+    border-radius:0.6rem;
+    overflow: hidden;
+   
+  }
   @media screen and (max-width: 64rem) {
     grid-row: 1;
   }
@@ -35,6 +44,9 @@ export const ContainerImg = styled.div`
 export const ContainerDetails = styled.div`
   padding: 2rem 2rem 0 2rem;
 
+  &.details {
+    padding: 2rem 0px 0px 0px;
+  }
   .author {
     opacity: 0.5;
     margin-bottom: 1rem;
@@ -61,26 +73,24 @@ export const ContainerDetails = styled.div`
 
   .attributes {
     display: flex;
-    margin-top:1rem;
-    margin-bottom:2rem;
-    font-size:1.25rem;
-    font-weight:bold;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    font-size: 1.25rem;
+    font-weight: bold;
   }
 
   .attributes li {
-      margin-right:1rem;
+    margin-right: 1rem;
   }
 
   .attributes li::before {
-    content:'';
-    display:inline-block;
-    margin-right:0.7rem;
+    content: "";
+    display: inline-block;
+    margin-right: 0.7rem;
     position: relative;
     top: 3px;
     height: 20px;
     width: 2px;
     background: #333;
   }
-
-  
 `;

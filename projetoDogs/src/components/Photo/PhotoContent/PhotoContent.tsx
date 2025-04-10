@@ -7,16 +7,16 @@ import  {UserContext}  from '../../../contexts/UserContext';
 import PhotoDelete from "../PhotoDelete/PhotoDelete";
 import Image from "../../../helper/Image";
 
-const PhotoContent = ({ data }) => {
+const PhotoContent = ({ data, single }) => {
   const { comments, photo } = data;
   const user = useContext(UserContext)
     
   return (
-    <ContainerPhoto>
+    <ContainerPhoto className={`${single ? 'single': ''}`}>
       <ContainerImg>
         <Image src={photo.src} alt={photo.title}/>     
       </ContainerImg>
-      <ContainerDetails>
+      <ContainerDetails className={`${single ? 'details': ''}`} >
         <div>
           <p className="author">          
             {user.dataUser &&  user.dataUser.username === photo.author ? (<PhotoDelete id={photo.id}/>):  (<Link to={`/perfil/${photo.author}`}>@{photo.author}</Link>)}           
@@ -31,7 +31,7 @@ const PhotoContent = ({ data }) => {
           </ul>
         </div>
       </ContainerDetails>
-      <PhotoComments id={photo.id} comments={comments} />
+      <PhotoComments id={photo.id} comments={comments} single={single} />
     </ContainerPhoto>
   );
 };
