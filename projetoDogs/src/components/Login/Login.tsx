@@ -6,6 +6,7 @@ import LoginResetPassword from "./LoginResetPassword/LoginResetPassword"
 import { useContext } from "react"
 import {UserContext} from '../../contexts/UserContext'
 import { SectionRoutesForm, ContainerRoutesLogin } from "./style"
+import NotFound from "../NotFound/NotFound"
 
 const Login = () => {
   const {login} = useContext(UserContext)
@@ -18,6 +19,7 @@ const Login = () => {
          <Route path="criar" element={<LoginCreate/>}/>
          <Route path="resetar-senha" element={<LoginResetPassword/>}/>
          <Route path="esqueceu-senha" element={<LoginForgetPassword/>}/>
+         <Route path="*" element={<NotFound/>}></Route>
       </Routes>
 
       </ContainerRoutesLogin>
