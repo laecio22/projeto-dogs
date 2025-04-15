@@ -117,3 +117,17 @@ export const GET_PHOTO = (id) => {
     url: `${BASE_URL}/api/photo/${id}`,
   };
 };
+
+export const PASSWORD_LOST = (body) => {
+  return {
+    url: `${BASE_URL}/api/password/lost`,
+    options: {
+      method: "POST",
+      headers: {      
+        "Content-Type": "application/json",
+      },
+
+      body: JSON.stringify(body),
+    },
+  };
+};
