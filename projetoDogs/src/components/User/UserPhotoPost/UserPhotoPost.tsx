@@ -8,6 +8,7 @@ import { PHOTO_POST } from "../../../api/URL.js";
 import React from "react";
 import Error from "../../../helper/Error.js";
 import { useNavigate } from "react-router-dom";
+import Head from "../../../helper/Head.js";
 
 const UserPhotoPost = () => {
   const nome = useForm();
@@ -44,6 +45,7 @@ const UserPhotoPost = () => {
   };
   return (
     <SectionFormPostFoto>
+      <Head title="Poste  sua  foto"/>
       <form onSubmit={handleSubmitFoto}>
         <Input type="text" name="nome" label="Nome" {...nome} />
         <Input type="number" name="peso" label="Peso" {...peso} />

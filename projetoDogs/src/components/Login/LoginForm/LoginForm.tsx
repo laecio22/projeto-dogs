@@ -6,6 +6,7 @@ import { useContext } from "react";
 import { UserContext } from "../../../contexts/UserContext";
 import { TitleForm, SectionLoginForm, Form } from "./style";
 import Error from "../../../helper/Error";
+import Head from "../../../helper/Head";
 
 const LoginForm = () => {
   const username = useForm();
@@ -23,6 +24,7 @@ const LoginForm = () => {
 
   return (
     <SectionLoginForm>
+      <Head title="Login"/>
       <Form onSubmit={submitUser}>
         <TitleForm>Login</TitleForm>
         <Input type="text" name="username" label="Usuário" {...username} />

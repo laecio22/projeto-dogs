@@ -7,11 +7,13 @@ import {UserContext} from '../../contexts/UserContext'
 import { useContext } from "react"
 import Feed from "../Feed/Feed"
 import NotFound from "../NotFound/NotFound"
+import Head from "../../helper/Head"
 
 const User = () => {
   const {dataUser} =  useContext(UserContext)
   return (
     <SectionContainerUser className="container" >
+      <Head title="Minha Conta"/>
       <UserHeader/>
       <Routes>
         <Route path="/"  element={<Feed user={dataUser.id}/>}/>

@@ -1,8 +1,12 @@
+import Head from "../../../helper/Head"
 
 
  const UserStats = () => {
   return (
-    <div>Estatísticas</div>
+    <div>
+      <Head title="Estatísticas"/>
+      Estatísticas
+    </div>
   )
 }
 
