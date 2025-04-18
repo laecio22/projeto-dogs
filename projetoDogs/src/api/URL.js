@@ -145,3 +145,15 @@ export const PASSWORD_RESET = (body) => {
     },
   };
 };
+
+export const GET_STATISTICS = (token) => {
+  return {
+    url: `${BASE_URL}/api/stats`,
+    options: {
+      method: "GET", 
+      headers: {
+        Authorization: "Bearer " + token,      
+      },    
+    },
+  };
+};
