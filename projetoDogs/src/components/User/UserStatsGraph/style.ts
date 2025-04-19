@@ -1,9 +1,12 @@
 import styled from "styled-components";
+import { animation } from "../../../helper/animationForm";
 
 export const SectionGraph = styled.div`
 display: grid;
 grid-template-columns: 1fr 1fr;
 gap: 2rem;
+animation: ${animation} 0.3s forwards;
+
 @media screen and (max-width:40rem) {
      grid-template-columns: 1fr;
      margin-bottom:2rem;
