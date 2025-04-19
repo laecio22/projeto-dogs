@@ -8,6 +8,7 @@ import { PASSWORD_RESET } from "../../../api/URL";
 import Error from "../../../helper/Error";
 import { useNavigate } from "react-router-dom";
 import Head from "../../../helper/Head";
+import { SectionResetPassword } from "./style";
 
 const LoginResetPassword = () => {
   const [login, setLogin] = useState("");
@@ -39,7 +40,7 @@ const LoginResetPassword = () => {
   };
 
   return (
-    <section>
+    <SectionResetPassword>
       <Head title="Resetar  Senha" />
       <TitleForm>Recuperação de Senha</TitleForm>
       <form onSubmit={handleSubmit}>
@@ -56,7 +57,7 @@ const LoginResetPassword = () => {
         )}
       </form>
       <Error error={error} />
-    </section>
+    </SectionResetPassword>
   );
 };
 

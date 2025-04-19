@@ -8,6 +8,10 @@ export const SectionFormPostFoto = styled.section`
   gap: 2rem;
   margin-bottom: 2rem;
 
+  @media screen and (max-width:40rem) {
+    grid-template-columns: 1fr;
+  }  
+
   input {
     margin-bottom: 3rem;
   }

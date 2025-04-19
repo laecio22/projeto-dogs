@@ -32,7 +32,8 @@ export const SectionLoginForm = styled.section`
   }
 
   .cadastro {
-    margin-top: 2rem;
+    margin-top: 4rem;
+    margin-bottom:4rem;
   }
 
   .cadastro p {

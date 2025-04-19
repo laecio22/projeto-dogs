@@ -6,6 +6,7 @@ import { TitleForm } from "../LoginForm/style";
 import { PASSWORD_LOST } from "../../../api/URL";
 import Error from "../../../helper/Error";
 import Head from "../../../helper/Head";
+import { SectionForgetPassword } from "./style";
 
 const LoginForgetPassword = () => {
   const login = useForm();
@@ -22,7 +23,7 @@ const LoginForgetPassword = () => {
     }
   };
   return (
-    <section>
+    <SectionForgetPassword>
       <Head title="Perdeu  a  Senha" />
       <TitleForm>Perdeu sua senha?</TitleForm>
       {data ? (
@@ -38,7 +39,7 @@ const LoginForgetPassword = () => {
           <Error error={error} />
         </form>
       )}
-    </section>
+    </SectionForgetPassword>
   );
 };
 
