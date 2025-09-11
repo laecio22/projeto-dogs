@@ -6,6 +6,7 @@ import Error from "../../../helper/Error.js"
 import Loading from "../../../helper/Loading.js"
 import { ContainerListPhotos } from "./style.js"
 
+
 const FeedPhotos = ({setModalPhoto, user, page, setInfinite}) => {
    const {data, loading, error, request} = useRequest()
 

@@ -1,11 +1,7 @@
 import { useEffect, useState } from "react";
 import FeedModal from "./FeedModal/FeedModal";
 import FeedPhotos from "./FeedPhotos/FeedPhotos";
-type User = string | number;
-
-interface IUser {
-    user:User;
-}
+import { IUser } from "../../types/IUser";
 
 const Feed = ({ user }:IUser )=> {
   const [modalPhoto, setModalPhoto] = useState(null);
