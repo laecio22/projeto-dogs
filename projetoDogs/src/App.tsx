@@ -6,7 +6,7 @@ import Login from "./components/Login/Login";
 import User from "./components/User/User";
 import Photo from "./components/Photo/Photo";
 import UserProfile from "./components/User/UserProfile/UserProfile";
-import { UserStorage } from "./contexts/UserContext";
+import { UserStorage } from "./contexts/UserContext.tsx";
 import ProtectedRoute from "./helper/ProtectedRoute";
 import "./index.css";
 import NotFound from "./components/NotFound/NotFound";
