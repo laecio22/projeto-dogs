@@ -2,7 +2,18 @@ const BASE_URL = "https://dogsapi.origamid.dev/json";
 import { IRequests } from "../types/IRequests.ts";
 import { IUser } from "../types/IUser.ts";
 
-export const TOKEN_CREATE = (body: FormData) => {
+type BodyCreateToken = {
+  username: string;
+  password: string;
+};
+
+type BodyCreateUser = {
+  username: string;
+  password: string;
+  email: string;
+}
+
+export const TOKEN_CREATE = (body: BodyCreateToken) => {
   const ObjectCreateToken: IRequests = {
     url: BASE_URL + "/jwt-auth/v1/token",
     options: {
@@ -43,7 +54,7 @@ export const GET_USER = (token: string) => {
   return ObjectGetUser;
 };
 
-export const USER_POST = (body: FormData) => {
+export const USER_POST = (body: BodyCreateUser) => {
   const ObjectPostUser: IRequests = {
     url: BASE_URL + "/api/user",
     options: {

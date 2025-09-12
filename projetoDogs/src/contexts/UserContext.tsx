@@ -1,27 +1,30 @@
-import { createContext, useCallback, useEffect, useState } from "react";
+import {
+  createContext,
+  ReactNode,
+  useCallback,
+  useEffect,
+  useState,
+} from "react";
 import { TOKEN_CREATE, GET_USER, TOKEN_VALIDATE } from "../api/URL";
 import { useNavigate } from "react-router-dom";
 
-export const UserContext = createContext();
+export const UserContext = createContext(null);
 
-export const UserStorage = ({ children }) => {
+export const UserStorage = ({ children }: { children: ReactNode }) => {
   const [dataUser, setDataUser] = useState(null);
   const [loading, setLoading] = useState(false);
-  const [login, setLogin] = useState(null);
-  const [error, setError] = useState(null); 
+  const [login, setLogin] = useState<boolean | null>(null);
+  const [error, setError] = useState(null);
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
-  const userLogout = useCallback(async()=>{
+  const userLogout = useCallback(async () => {
     setDataUser(null);
     setError(null);
     setLoading(false);
     setLogin(false);
     window.localStorage.removeItem("token");
-    
-  }, [])
-  
-  
+  }, []);
 
   useEffect(() => {
     const autoLogin = async () => {
@@ -31,6 +34,7 @@ export const UserStorage = ({ children }) => {
           setError(null);
           setLoading(true);
           const { url, options } = TOKEN_VALIDATE(token);
+          console.log(options, "options");
           const response = await fetch(url, options);
           if (!response.ok) throw new Error("Token inválido");
           await getUser(token);
@@ -41,14 +45,14 @@ export const UserStorage = ({ children }) => {
           setLoading(false);
         }
       } else {
-        setLogin(false)
+        setLogin(false);
       }
     };
 
     autoLogin();
   }, [userLogout]);
 
-  const userLogin = async (username, password) => {
+  const userLogin = async (username: string, password: string) => {
     try {
       setError(null);
       setLoading(true);
@@ -56,6 +60,7 @@ export const UserStorage = ({ children }) => {
         username,
         password,
       });
+      console.log(options, "options 2");
       const tokenRes = await fetch(url, options);
       if (!tokenRes.ok) throw new Error(` Usuário inválido`);
       const { token } = await tokenRes.json();
@@ -70,9 +75,7 @@ export const UserStorage = ({ children }) => {
     }
   };
 
- 
-
-  const getUser = async (token) => {
+  const getUser = async (token: string) => {
     try {
       const { url, options } = GET_USER(token);
       const response = await fetch(url, options);
