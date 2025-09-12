@@ -7,14 +7,24 @@ import {
 } from "react";
 import { TOKEN_CREATE, GET_USER, TOKEN_VALIDATE } from "../api/URL";
 import { useNavigate } from "react-router-dom";
+import { IDataUser } from "../types/IDataUser";
 
-export const UserContext = createContext(null);
+type UserContextType = {
+  userLogin: (username: string, password: string) => Promise<void>;
+  userLogout: () => Promise<void>;
+  dataUser: IDataUser | null; 
+  error: string | null | Error;
+  loading: boolean;
+  login: boolean | null;   
+}
+
+export const UserContext = createContext({} as UserContextType);
 
 export const UserStorage = ({ children }: { children: ReactNode }) => {
   const [dataUser, setDataUser] = useState(null);
   const [loading, setLoading] = useState(false);
   const [login, setLogin] = useState<boolean | null>(null);
-  const [error, setError] = useState(null);
+  const [error, setError] = useState<string | null | Error>(null);
 
   const navigate = useNavigate();
 
@@ -33,8 +43,7 @@ export const UserStorage = ({ children }: { children: ReactNode }) => {
         try {
           setError(null);
           setLoading(true);
-          const { url, options } = TOKEN_VALIDATE(token);
-          console.log(options, "options");
+          const { url, options } = TOKEN_VALIDATE(token);          
           const response = await fetch(url, options);
           if (!response.ok) throw new Error("Token inválido");
           await getUser(token);
@@ -59,8 +68,7 @@ export const UserStorage = ({ children }: { children: ReactNode }) => {
       const { url, options } = TOKEN_CREATE({
         username,
         password,
-      });
-      console.log(options, "options 2");
+      });     
       const tokenRes = await fetch(url, options);
       if (!tokenRes.ok) throw new Error(` Usuário inválido`);
       const { token } = await tokenRes.json();
@@ -68,7 +76,11 @@ export const UserStorage = ({ children }: { children: ReactNode }) => {
       await getUser(token);
       navigate("/conta");
     } catch (error) {
-      setError(error.message);
+       if (error instanceof Error) {
+        setError(error?.message);
+      } else {
+        setError("Ocorreu um erro desconhecido.");
+      }     
       setLogin(false);
     } finally {
       setLoading(false);
@@ -81,6 +93,7 @@ export const UserStorage = ({ children }: { children: ReactNode }) => {
       const response = await fetch(url, options);
       const json = await response.json();
       setDataUser(json);
+      console.log(json)
       setLogin(true);
     } catch (error) {
       console.log(error);

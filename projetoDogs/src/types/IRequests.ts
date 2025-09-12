@@ -3,10 +3,10 @@ type Headers = {
      Authorization?: string,
 }
 type Options = {
-    method: string;
+    method?: string;
     headers?: Headers;
-    body?: string | FormData;
-    cache?: string;
+    body?: string | FormData | null;
+    cache?: RequestCache;
 };
 export interface IRequests {
     url: string;
