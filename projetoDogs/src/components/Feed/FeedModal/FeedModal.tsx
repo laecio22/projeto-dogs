@@ -6,7 +6,20 @@ import Loading from "../../../helper/Loading.js";
 import PhotoContent from "../../Photo/PhotoContent/PhotoContent.js";
 import { ContainerModal } from "./style.js";
 
-const FeedModal = ({ photo, setModalPhoto }) => {
+interface IFeedModalProps {   
+  photo: {
+    id: string;
+    src: string;
+    title: string;
+    peso: string;
+    idade: string;
+    acessos: number;
+    date: string;     
+  },
+  setModalPhoto: (photo: null) => void;
+}
+
+const FeedModal = ({ photo, setModalPhoto }:IFeedModalProps) => {
   const { data, error, loading, request } = useRequest();
 
   useEffect(() => {
@@ -14,7 +27,8 @@ const FeedModal = ({ photo, setModalPhoto }) => {
     request(url, options);
   }, [photo, request]);
 
-  const handleOutsideClick = (event) => {
+  const handleOutsideClick = (event:React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+   
     if (event.target === event.currentTarget) setModalPhoto(null);
   };
 

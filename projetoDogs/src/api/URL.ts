@@ -133,7 +133,7 @@ export const PHOTO_DELETE = (id:string, token:string) => {
   return ObjectPhotoDelete
 };
 
-export const GET_PHOTO = (id:string) => {
+export const GET_PHOTO = (id:string | undefined) => {
   const ObjectGetPhoto: IRequests = {
      url: `${BASE_URL}/api/photo/${id}`,
   }
