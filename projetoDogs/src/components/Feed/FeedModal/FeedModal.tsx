@@ -5,25 +5,19 @@ import Error from "../../../helper/Error.js";
 import Loading from "../../../helper/Loading.js";
 import PhotoContent from "../../Photo/PhotoContent/PhotoContent.js";
 import { ContainerModal } from "./style.js";
+import { IDataPhoto } from "../../../types/IDataPhoto.js";
 
 interface IFeedModalProps {   
-  photo: {
-    id: string;
-    src: string;
-    title: string;
-    peso: string;
-    idade: string;
-    acessos: number;
-    date: string;     
-  },
+  photo:IDataPhoto,
   setModalPhoto: (photo: null) => void;
 }
 
 const FeedModal = ({ photo, setModalPhoto }:IFeedModalProps) => {
   const { data, error, loading, request } = useRequest();
+  console.log(photo, "photo");
 
   useEffect(() => {
-    const { url, options } = PHOTO_GET(photo.id);
+    const { url, options } = PHOTO_GET(photo.photo.id);
     request(url, options);
   }, [photo, request]);
 

@@ -2,7 +2,7 @@ type Headers = {
     'Content-Type'?: string,
      Authorization?: string,
 }
-type Options = {
+export type Options = {
     method?: string;
     headers?: Headers;
     body?: string | FormData | null;

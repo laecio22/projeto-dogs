@@ -93,7 +93,7 @@ export const GET_PHOTOS = ({ page, total, user }: {page:number, total:number, us
   };
 };
 
-export const PHOTO_GET = (id:string) => {
+export const PHOTO_GET = (id:number) => {
   const ObjectPhotoGet: IRequests = {
      url: `${BASE_URL}/api/photo/${id}`,
     options: {

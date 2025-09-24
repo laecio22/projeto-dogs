@@ -6,8 +6,14 @@ import { useContext } from "react";
 import  {UserContext}  from '../../../contexts/UserContext';
 import PhotoDelete from "../PhotoDelete/PhotoDelete";
 import Image from "../../../helper/Image";
+import { IDataPhoto } from "../../../types/IDataPhoto";
 
-const PhotoContent = ({ data, single }) => {
+interface IPhotoContentProps {
+  data: IDataPhoto;
+  single?: boolean;
+}       
+
+const PhotoContent = ({ data, single }:IPhotoContentProps) => {
   const { comments, photo } = data;
   const user = useContext(UserContext)
     

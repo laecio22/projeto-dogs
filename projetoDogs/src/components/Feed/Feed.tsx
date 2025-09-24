@@ -2,10 +2,10 @@ import { useEffect, useState } from "react";
 import FeedModal from "./FeedModal/FeedModal";
 import FeedPhotos from "./FeedPhotos/FeedPhotos";
 import { IUser } from "../../types/IUser";
-import { IModalPhoto } from "../../types/IModalPhoto";
+import {  IDataPhoto } from "../../types/IDataPhoto";
 
 const Feed = ({ user }: IUser) => {
-  const [modalPhoto, setModalPhoto] = useState<IModalPhoto | null>(null);
+  const [modalPhoto, setModalPhoto] = useState<IDataPhoto | null>(null);
   const [pages, setPages] = useState([1, 2]);
   const [infinite, setInfinite] = useState(true);
 
